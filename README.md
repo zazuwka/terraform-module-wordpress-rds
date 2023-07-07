@@ -6,7 +6,7 @@ Create a configuration to launch EC2 instance with wordpress and connect RDS dat
 
 ```hcl
 module "ec2" {
-  source  = ""
+  source  = "zazuwka/wordpress-rds/module"
   version = "0.0.1"
   region         = "us-east-2"
   instance_type  = "t2.micro"
