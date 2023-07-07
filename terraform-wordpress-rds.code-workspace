@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../terraform-april-2023"
+		},
+		{
+			"path": "../terraform-module-vpc"
+		}
+	],
+	"settings": {}
+}
