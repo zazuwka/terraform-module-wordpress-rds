@@ -14,7 +14,6 @@ module "ec2" {
   root_volume_size = 22
   key_name = "yo-key"
   key_file = "~/.ssh/id_rsa.pub"
-  private_key = "~/.ssh/id_rsa"
   vpc_main_cidr_block     = "10.0.0.0/16"
   vpc_public1_cidr_block  = "10.0.1.0/24"
   vpc_public2_cidr_block  = "10.0.2.0/24"
