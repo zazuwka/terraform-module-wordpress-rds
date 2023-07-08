@@ -72,4 +72,5 @@ variable "root_volume_size" {}
 variable "database_name" {}
 variable "database_user" {}
 variable "database_password" {}
-variable "private_key" {}
+
+# variable "private_key" {}

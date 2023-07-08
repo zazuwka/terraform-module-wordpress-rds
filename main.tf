@@ -84,27 +84,29 @@ output "RDS-Endpoint" {
   value = aws_db_instance.wordpress_db.endpoint
 }
 output "INFO" {
-  value = "AWS Resources and Wordpress has been provisioned. Go to http://${aws_eip.eip.public_ip}"
+  value = "Go to http://${aws_eip.eip.public_ip}"
 }
 
-resource "null_resource" "Wordpress_Installation_Waiting" {
-  # trigger will create new null-resource if ec2 id or rds is changed
-  triggers = {
-    ec2_id       = aws_instance.wordpress_server.id,
-    rds_endpoint = aws_db_instance.wordpress_db.endpoint
-
-  }
-  connection {
-    type        = "ssh"
-    user        = "ec2-user"
-    private_key = file(var.private_key)
-    host        = aws_eip.eip.public_ip
-  }
 
 
-  provisioner "remote-exec" {
-    inline = ["sudo tail -f -n0 /var/log/cloud-init-output.log| grep -q 'WordPress Installed'"]
+# resource "null_resource" "Wordpress_Installation_Waiting" {
+#   # trigger will create new null-resource if ec2 id or rds is changed
+#   triggers = {
+#     ec2_id       = aws_instance.wordpress_server.id,
+#     rds_endpoint = aws_db_instance.wordpress_db.endpoint
 
-  }
-}
+#   }
+#   connection {
+#     type        = "ssh"
+#     user        = "ec2-user"
+#     private_key = file(var.private_key)
+#     host        = aws_eip.eip.public_ip
+#   }
+
+
+#   provisioner "remote-exec" {
+#     inline = ["sudo tail -f -n0 /var/log/cloud-init-output.log| grep -q 'WordPress Installed'"]
+
+#   }
+# }
 
